@@ -83,8 +83,9 @@
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
+                   
 
-                @if(strtolower(auth()->user()->email) == "soltan_algaram41@yahoo.com")
+             @if(strtolower(auth()->user()->email) == "nour-ja19@hotmail.fr")
                 <li class="nav-item">
                     <a class="nav-link active" href="#admin" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fas fa-user-secret" style="color: #f4645f;"></i>
@@ -107,7 +108,7 @@
                     </div>
                     
                 </li>
-                @endif
+             @endif
 
                 <li class="nav-item">
                     <a class="nav-link" href="#user" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
