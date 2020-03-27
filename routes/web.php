@@ -24,7 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Admin Routes 
 
+
 Route::group(['middleware' => ['auth', 'admin'] ], function () {
+
 
 	Route::get('admin', function() {
 		return redirect('admin/dashboard');
@@ -36,10 +38,18 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
 	Route::resource('admin/users', 'Admin\UserController', ['except' => ['show']]);
 
+	Route::resource('admins/tracks', 'Admin\TrackController');
+
+	Route::resource('admin/courses', 'Admin\courseController');
+
+	Route::resource('admin/videos', 'Admin\videoController'); 
+
 	Route::get('admin/profile', ['as' => 'profile.edit', 'uses' => 'Admin\ProfileController@edit']);
 	
 	Route::put('admin/profile', ['as' => 'profile.update', 'uses' => 'Admin\ProfileController@update']);
 	
 	Route::put('admin/profile/password', ['as' => 'profile.password', 'uses' => 'Admin\ProfileController@password']);
+
+
 });
 
