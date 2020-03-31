@@ -80,9 +80,10 @@ class courseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Course $course)
     {
-        //
+        return view('admin.courses.show', compact('course'));   
+
     }
 
     /**
@@ -133,9 +134,9 @@ class courseController extends Controller
                             $photo = $course->photo;
                             
                             // remove the old image from server
-                            $filename = $course->photo->filename;
-                            unlink('images/'. $filename);
-                    
+                            $filename = $photo->filename;
+                            unlink('images/'.$filename);
+
                             // update image
                             $photo->filename =  $file_to_store;
                             $photo->save();
@@ -143,10 +144,10 @@ class courseController extends Controller
                             // 'photoable_id' => $course->id,
                             // 'photoable_type' => 'App\Course',  yabkaw nafeshom juste filename yetbadel
                           
-                       }else {   // sinon 
+                       }else {   // sinon  n' a pas de photo
                                   
                         Photo::create([
-                            'filename' => $file_to_store,              
+                            'filename' => $file_to_store,
                             'photoable_id' => $course->id,
                             'photoable_type' => 'App\Course',
                         ]);
@@ -174,15 +175,24 @@ class courseController extends Controller
         
     // delete photo from server 
     // if( $course->photo) = vraie  c.a.d course a une photo
-      if( $course->photo){
-        $filename = $course->photo->filename;
-        unlink('images/'. $filename);
+        if($course->photo) {
+            
+            $filename = $course->photo->filename;
+            unlink('images/'.$filename);
 
-    }
-      // delete course photo
+             // delete course photo
+             $course->photo->delete();
+             $course->delete();
 
-        $course->photo->delete() ;
-        $course->delete() ; 
-        return redirect('/admin/courses')->withStatus('Course succesfully  deleted.'); 
+        }else{
+
+            $course->delete();
+
+        }
+
+
+       
+
+        return redirect('/admin/courses')->withStatus('Course successfully deleted.');; 
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('Videos Management')])
+@extends('layouts.app', ['title' => __('Video Management')])
 
 @section('content')
     @include('layouts.headers.cards')
@@ -17,7 +17,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-12">
                         @if (session('status'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -34,7 +34,7 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">{{ __('Title') }}</th>
-                                    <th scope="col">{{ __('Course') }}</th>
+                                    <th scope="col">{{ __('Course name') }}</th>
                                     <th scope="col">{{ __('Creation Date') }}</th>
                                     <th scope="col"></th>
                                 </tr>
@@ -42,30 +42,27 @@
                             <tbody>
                                 @foreach ($videos as $video)
                                     <tr>
-                                        <td  title="{{ $video->title }}">{{ Str::limit($video->title, 50) }}</td>
+                                        <td title="{{ $video->title }}"><a href="/admin/videos/{{ $video->id }}"> {{ \Str::limit($video->title, 50) }} </a></td>
                                         <td>
-                                            <a href="admin/courses/ {{ $video->course->id }}">{{  Str::limit($video->course->title,50) }}</a>
+                                            <a href="/admin/courses/{{ $video->course->id }}">{{ \Str::limit($video->course->title, 50) }}</a>
                                         </td>
-                                        <td>{{ $video->created_at->diffForHumans()  }}</td>
+                                        <td>{{ $video->created_at->diffForHumans() }}</td>
                                         <td class="text-right">
                                             <div class="dropdown">
-                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" 
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                    <form action="{{ route('videos.destroy', $video) }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        
+                                                        <a class="dropdown-item" href="{{ route('videos.edit', $video) }}">{{ __('Edit') }}</a>
+                                                        <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
+                                                            {{ __('Delete') }}
+                                                        </button>
+                                                    </form>    
                                                     
-                                                        <form action="{{ route('videos.destroy', $video) }}" method="post">
-                                                            @csrf
-                                                            @method('delete')
-                                                            
-                                                            <a class="dropdown-item" href="{{ route('videos.edit', $video) }}">{{ __('Edit') }}
-                                                                </a>
-                                                            <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
-                                                                {{ __('Delete') }}
-                                                            </button>
-                                                        </form>    
-                                               
                                                 </div>
                                             </div>
                                         </td>

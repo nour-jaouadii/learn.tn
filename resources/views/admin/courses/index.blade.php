@@ -8,7 +8,7 @@
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-0">
-                        <div class="row align-items-center">
+                        <div class="row align-items-center"> 
                             <div class="col-8">
                                 <h3 class="mb-0">{{ __('Courses') }}</h3>
                             </div>
@@ -60,7 +60,7 @@
 
                                     <a href="  {{ route('courses.edit',$course->id) }}  " class="btn btn-primary btn-sm">Edit</a>
 
-                                    <a href="{{ route('courses.show',$course) }} " class="btn btn-primary btn-sm">show</a>
+                                    <a href="{{ route('courses.show',$course->id) }} " class="btn btn-primary btn-sm">show</a>
                                     <input type="submit" class=" btn btn-danger btn-sm" value="Delete" name="delete course">
                                    
 

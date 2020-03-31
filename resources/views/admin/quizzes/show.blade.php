@@ -13,10 +13,7 @@
                                 <h3 class="mb-0">{{ __('Quiz Name: ') }} {{ $quiz->name }} </h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="/admin/quizzes/{{$quiz->id}}/questions/create" 
-                                    class="btn btn-sm btn-primary">
-                                    {{ __('Add question') }}
-                                </a>
+                                <a href="/admin/quizzes/{{$quiz->id}}/questions/create" class="btn btn-sm btn-primary">{{ __('Add question') }}</a>
                             </div>
                         </div>
                     </div>
@@ -53,26 +50,21 @@
                                         
                                         <td class="text-right">
                                             <div class="dropdown">
-                                                <a class="btn btn-sm btn-icon-only text-light" 
-                                                href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                                 aria-expanded="false">
+                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                {{-- <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                     <form action="{{ route('questions.destroy', $question) }}" method="post">
                                                         @csrf
                                                         @method('delete')
                                                         
-                                                        <a class="dropdown-item" href="{{ route('questions.edit', $question) }}">
-                                                            {{ __('Edit') }}
-                                                        </a>
-                                                        <button type="button" class="dropdown-item" 
-                                                        onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
+                                                        <a class="dropdown-item" href="{{ route('questions.edit', $question) }}">{{ __('Edit') }}</a>
+                                                        <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
                                                             {{ __('Delete') }}
                                                         </button>
                                                     </form>    
                                                     
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </td>
                                     </tr>

@@ -19,13 +19,8 @@
                     </div>
                     <div class="card-body">
                     	
-                        {{-- <iframe class="ml-4" width="700" height="315" src="{{ $video->link }}"
-                             frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen>
-                        </iframe> --}}
-                        <iframe width="560" height="315" src="{{ $video->link }}"
-                         frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                       
-                         allowfullscreen></iframe>
+                    	<iframe class="ml-4" width="700" height="315" src="{{ $video->link }}" frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen></iframe>
+                        
                     </div>
                 </div>
             </div>
