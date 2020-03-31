@@ -80,10 +80,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+
+                               
+                                @endforeach
+
+
                                 @foreach ($course->videos as $video)
                                     <tr>
                                         <td title="{{ $video->title }}"><a href="/admin/videos/{{ $video->id }}">
-                                            {{ \Str::limit($video->title, 50) }} </a></td>
+                                            {{ \Str::limit($video->title, 50) }} </a>
+                                        </td>
                                         <td>{{ $video->created_at->diffForHumans() }}</td>
                                         <td class="text-right">
                                             <div class="dropdown">

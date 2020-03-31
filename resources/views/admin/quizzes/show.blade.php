@@ -13,7 +13,9 @@
                                 <h3 class="mb-0">{{ __('Quiz Name: ') }} {{ $quiz->name }} </h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="/admin/quizzes/{{$quiz->id}}/questions/create" class="btn btn-sm btn-primary">{{ __('Add question') }}</a>
+                                <a href="/admin/quizzes/{{$quiz->id}}/questions/create" class="btn btn-sm btn-primary">
+                                    {{ __('Add question') }}
+                                </a>
                             </div>
                         </div>
                     </div>

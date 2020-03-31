@@ -33,7 +33,7 @@ $factory->define(Track::class, function (Faker $faker) {
 
 $factory->define(Course::class, function (Faker $faker) {
     return [
-    	'title' => $faker->paragraph,
+    	'title' => $faker->sentence,
     	'status' => $faker->randomElement([0,1]),
     	'link' => $faker->url,
     	'track_id' => Track::all()->random()->id,
@@ -58,7 +58,7 @@ $factory->define(Quiz::class, function (Faker $faker) {
 });
 
 $factory->define(Question::class, function (Faker $faker) {
-    $answers = $faker->paragraph; 
+    $answers = $faker->sentence; 
     $right_answer = $faker->randomElement(explode(' ', $answers));
     
     return [

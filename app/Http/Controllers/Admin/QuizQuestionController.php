@@ -4,28 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Question;
-class questionController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $questions =  Question::orderBy('id','desc')->paginate(30);
-        return view('admin.questions.index',compact('questions'));
-    }
+use App\Quiz;
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+class QuizQuestionController extends Controller
+{
+ 
+    public function create(Quiz $quiz)
     {
-        return view('admin.questions.create');
+        return view('admin.courses.createQuestion',compact('quiz'));
     }
 
     /**
@@ -45,10 +31,9 @@ class questionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show( )
-
+    public function show($id)
     {
-       
+        //
     }
 
     /**
