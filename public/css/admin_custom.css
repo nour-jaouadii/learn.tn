@@ -23,5 +23,8 @@
 
 .dashbord_tracks,
 .dashbord_courses{
-margin-top: 55px;
+margin-top: 24px;
+}
+.white{
+    color:white;
 }

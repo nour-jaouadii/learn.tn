@@ -27,10 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     { 
-
+        $quizzes  = Quiz::orderBy('id','desc')->limit(5)->get();
+        $users  = User::orderBy('id','desc')->limit(5)->get();
         $tracks = Track::orderBy('id','desc')->limit(5)->get();
         $courses = Course::orderBy('id','desc')->limit(5)->get();
 
-        return view('admin.dashboard', compact('courses','tracks'));
+        return view('admin.dashboard', compact('courses','tracks','quizzes','users'));
     }
 }
