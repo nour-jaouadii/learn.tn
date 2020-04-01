@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Track;
+use App\Course;
+use App\User;
+use App\Quiz;
 class HomeController extends Controller
 {
     /**
@@ -22,7 +26,11 @@ class HomeController extends Controller
      * @return \Illuminate\View\View
      */
     public function index()
-    {
-        return view('admin.dashboard');
+    { 
+
+        $tracks = Track::orderBy('id','desc')->limit(5)->get();
+        $courses = Course::orderBy('id','desc')->limit(5)->get();
+
+        return view('admin.dashboard', compact('courses','tracks'));
     }
 }
