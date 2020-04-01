@@ -11,7 +11,7 @@ class QuizQuestionController extends Controller
  
     public function create(Quiz $quiz)
     {
-        return view('admin.courses.createQuestion',compact('quiz'));
+        return view('admin.quizzes.createQuestion',compact('quiz'));
     }
 
     /**

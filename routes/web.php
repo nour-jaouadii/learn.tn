@@ -54,7 +54,7 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 	Route::resource('admin/videos', 'Admin\VideoController');
 
 
-	Route::resource('admin/questions', 'Admin\questionController');
+	Route::resource('admin/questions', 'Admin\questionController', ['except' => ['show']]);
 
 	Route::resource('admin/quizzes', 'Admin\QuizController');
 

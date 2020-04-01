@@ -48,7 +48,7 @@
                                 @foreach ($questions as $question)
 
                                     <tr>
-                                        <td title='{{$question->title}} ' > <a href="{{ route('questions.show', $question) }}">
+                                        <td title='{{$question->title}} ' > <a >
                                             {{ \Str::limit($question->title,30) }} 
                                             </a>
                                         </td>
