@@ -48,7 +48,8 @@
                                 @foreach ($questions as $question)
 
                                     <tr>
-                                        <td title='{{$question->title}} ' > <a >
+                                        <td title='{{$question->title}} ' > <a 
+                                            >
                                             {{ \Str::limit($question->title,30) }} 
                                             </a>
                                         </td>

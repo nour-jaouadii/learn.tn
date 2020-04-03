@@ -74,7 +74,9 @@
                                     
                                     <select name="type" required class="form-control">
                                         <option <php if($question->type == 'text') echo 'selected' ?>  value="text">text</option>
-                                        <option <php if($question->type == 'checkbox') echo 'selected' ?>  value="checkbox">checkbox</option>
+                                        <option <
+                                        
+                                        php if($question->type == 'checkbox') echo 'selected' ?>  value="checkbox">checkbox</option>
                                     </select>
 
                                     @if ($errors->has('type'))

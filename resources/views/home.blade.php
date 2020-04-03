@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends('layouts.user_layout')
 
-	This is home page
+@section('content')
+@include('includes.home_picture')	
+@include('includes.mycourses')	
+@include('includes.track_famous_courses')	
 
-</body>
-</html>
-
+@endsection

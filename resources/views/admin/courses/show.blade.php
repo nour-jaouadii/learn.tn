@@ -82,7 +82,6 @@
                             <tbody>
 
                                
-                                @endforeach
 
 
                                 @foreach ($course->videos as $video)
