@@ -32,8 +32,14 @@ $factory->define(Track::class, function (Faker $faker) {
 });
 
 $factory->define(Course::class, function (Faker $faker) {
+ 
+    $title = $faker->sentence;
+
     return [
-    	'title' => $faker->sentence,
+
+        'title' => $title,
+        'description' => $faker->Paragraph,
+    	'slug' => strtolower(str_replace(' ','-', $title)) ,
     	'status' => $faker->randomElement([0,1]),
     	'link' => $faker->url,
     	'track_id' => Track::all()->random()->id,
