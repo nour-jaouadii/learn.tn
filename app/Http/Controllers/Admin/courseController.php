@@ -114,6 +114,7 @@ class courseController extends Controller
             
         ];
         $this->validate($request,$rules);
+        $request['slug'] = strtolower(str_replace( ' ','-',$request->title));
 
       //   dd($request->all());
         $course->update($request->all());

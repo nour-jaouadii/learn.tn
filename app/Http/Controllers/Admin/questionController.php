@@ -41,7 +41,7 @@ class questionController extends Controller
             'answers' => 'required|min:10|max:1000',
             'right_answer' => 'required|min:3|max:100',
             'score' => 'required|integer|in:5,10,15,20,25,30',
-            // 'type' => 'required|in:text,checkbox',
+             'type' => 'required|in:text,checkbox',
             'quiz_id' => 'required|integer',
         ];
 
@@ -66,7 +66,7 @@ class questionController extends Controller
             'answers' => 'required|min:10|max:1000',
             'right_answer' => 'required|min:3|max:100',
             'score' => 'required|integer|in:5,10,15,20,25,30',
-            // 'type' => 'required|in:text,checkbox',
+            'type' => 'required|in:text,checkbox',
             'quiz_id' => 'required|integer',
         ];
 

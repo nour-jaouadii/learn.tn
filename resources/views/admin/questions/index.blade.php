@@ -48,8 +48,8 @@
                                 @foreach ($questions as $question)
 
                                     <tr>
-                                        <td title='{{$question->title}} ' > <a 
-                                            >
+                                        <td title='{{$question->title}} ' > 
+                                            <a  href ='/admin/questions/{{$question->id}}/edit '>
                                             {{ \Str::limit($question->title,30) }} 
                                             </a>
                                         </td>
@@ -91,7 +91,7 @@
                         </table>
                     </div>
                     <div class="card-footer py-4">
-                        <nav class="d-flex justify-content-end" aria-label=h "...">
+                        <nav class="d-flex justify-content-end" aria-label ="...">
                             {{ $questions->links() }}
                         </nav> 
                     </div>

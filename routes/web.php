@@ -13,7 +13,7 @@
 
 // User Routes
 
-//Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,7 +23,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::get('/courses/{slug}', 'CourseController@index');
+
+Route::get('/courses/{slug}/quizzes/{name}', 'QuizController@index');
+
+Route::post('/courses/{slug}/quizzes/{name}', 'QuizController@submit');
+
+
 
 // Admin Routes 
 
