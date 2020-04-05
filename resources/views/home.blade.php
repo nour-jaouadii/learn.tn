@@ -2,7 +2,10 @@
 
 @section('content')
 @include('includes.home_picture')	
-@include('includes.mycourses')	
+
+@auth
+    @include('includes.mycourses')	
+@endauth
 @include('includes.track_famous_courses')	
 
 @endsection

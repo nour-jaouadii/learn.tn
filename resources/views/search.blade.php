@@ -15,7 +15,9 @@
 								<div class="col-sm-4">
 									<div class="course-image">
 										@if($course->photo)
-										<a href="/courses/{{ $course->slug }}"><img src="/images/{{ $course->photo->filename }}"></a>
+										<a href="/courses/{{ $course->slug }}">
+											<img src="/images/{{ $course->photo->filename }}">
+										</a>
 										@else
 										<a href="/courses/{{ $course->slug }}"><img src="/images/default.jpg"></a>
 										@endif
