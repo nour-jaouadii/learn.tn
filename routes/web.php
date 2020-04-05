@@ -30,6 +30,8 @@ Route::get('/courses/{slug}/quizzes/{name}', 'QuizController@index');
 
 Route::post('/courses/{slug}/quizzes/{name}', 'QuizController@submit');
 
+Route::get('/search', 'SearchController@index');
+
 
 
 // Admin Routes 
