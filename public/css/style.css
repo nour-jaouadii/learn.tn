@@ -390,7 +390,51 @@ footer div.footer-copyright a {
 	background-color: #8e1717;
 }
 
+/*      enroll mycourses boutton
+ */
+.enroll-form {
+	width: 30%;
+	float: right;
+	margin-bottom: 30px;
+}
 
+.enroll-form form,
+.enroll-form div {
+    margin-left: -11px;
+    margin-right: -15px;
+}
+
+.enroll-form .btn-enroll {
+	width: 100%;
+	font-weight: 500;
+	margin-top: 5px;
+	font-size: 20px;
+	height: 56px;
+	font-family: Lato;
+	border-radius: 0;
+	background: #ec5252;
+	border-color: transparent;
+	transition: .3s ease-in-out;
+	color: #fff;
+	box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+}
+.enroll-form .btn-enroll:hover {
+	background-color: #992337;
+}
+
+.enroll-form div {
+	font-size: 20px;
+	color: #e2e2e2;
+	font-weight: 500;
+	background: #3cc5ac;
+	border-color: #3cc5ac;
+	text-align: center;
+	border-radius: 0;
+	margin-top: 5px;
+	height: 60px;
+	opacity: .9;
+	box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+}
 
 /* Video Course Style */
 
@@ -431,6 +475,15 @@ footer div.footer-copyright a {
 	margin-left: 20px;
 }
 
+.video .disabled {
+	cursor: not-allowed;
+}
+
+
+.video .disabled a {
+	cursor: not-allowed;
+}
+
 .modal .modal-content {
 	width: 650px;
     text-align: center;
@@ -451,6 +504,14 @@ footer div.footer-copyright a {
 }
 
 /* Quizz Style */
+.quiz .disabled {
+	cursor: not-allowed;
+}
+
+
+.quiz .disabled a {
+	cursor: not-allowed;
+}
 
 .quizzes {
 	margin-top: 20px;
@@ -599,6 +660,7 @@ footer div.footer-copyright a {
 	opacity: .8;
 }
 
+
 /* User Courses Style  */
 
 
@@ -618,4 +680,19 @@ footer div.footer-copyright a {
     padding-bottom: 20px;
     box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
     margin-bottom: 20px;
+}
+
+.user-courses .course h6 {
+	padding: 10px;
+	min-height: 60px;
+}
+
+.user-courses .course img {
+	width: 255px;
+	height: 170px;
+	transition: .1s ease-in-out;
+}
+
+.user-courses .course img:hover {
+	opacity: .8;
 }

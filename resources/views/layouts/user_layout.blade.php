@@ -61,7 +61,7 @@
                 @auth
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">My Courses</a>
+                    <a class="dropdown-item" href="/mycourses">My Courses</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                 </div>

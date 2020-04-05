@@ -60,6 +60,19 @@
 			</div>
 
 		</div>
+		<div class="enroll-form">
+
+   @if(count(auth()->user()->courses()->where('slug', $course->slug)->get())> 0) 		
+
+	        <div class="alert alert-success">Already enroled</div>
+			
+		 @else
+			<form method="POST" action="/courses/{{$course->slug}}">
+				@csrf
+				<input type="submit" value="Enroll" name="enroll" class="btn btn-default btn-enroll">				
+			</form> 
+		 @endif 
+		</div>
 
 		<div class="videos">
 			
@@ -71,27 +84,32 @@
 					
 					@if(count($course->videos) > 0)
 
-						{{-- @if(count(auth()->user()->courses()->where('slug', $course->slug)->get()) > 0) --}}
+				
+						@if(count(auth()->user()->courses()->where('slug', $course->slug)->get())> 0) 		
 
-						{{-- @foreach($course->videos as $video)
-							<div class="video">
-								<a data-toggle="modal" data-target="#show-video" href="{{$video->link}}"><i class="fab fa-youtube">
-									</i> {{ $video->title }}</a>
-							</div>
-						@endforeach
+							@foreach($course->videos as $video)
+								<div class="video ">
+									<a data-toggle="modal" data-target="#show-video" 
+										href="{{$video->link}}">
+										<i class="fab fa-youtube"></i> {{ $video->title }}
+									</a>
+								</div>
+							@endforeach
+						@else
+							@foreach($course->videos as $video)
+								<div class="video disabled">
+									<a data-toggle="modal" data-target="#show-video" 
+										href="{{$video->link}}">
+										<i class="fab fa-youtube"></i> {{ $video->title }}
+									</a>
+								</div>
+							@endforeach
 
-						@else --}}
+						@endif
 
-						@foreach($course->videos as $video)
-							<div class="video disabled">
-								<a data-toggle="modal" data-target="#show-video" href="{{$video->link}}">
-									<i class="fab fa-youtube"></i> {{ $video->title }}
-								</a>
-							</div>
-						@endforeach
-
-						{{-- @endif --}}
 						<!-- Modal -->
+						@if(count(auth()->user()->courses()->where('slug', $course->slug)->get()) > 0)
+
 							<div class="modal fade" id="show-video" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
 								<div class="modal-dialog" role="document">
 								<div class="modal-content">
@@ -110,88 +128,7 @@
 								</div>
 								</div>
 							</div>
-
-
-					@else
-						<div class="alert alert-secondary">
-							This course does not include any videos
-						</div>
-					@endif
-				</div>
-			</div>
-		</div>
-
-		<div class="quizzes">
-			
-			<h3>Course Videos</h3>
-		<div class="row">
-				
-				<div class="col-sm-12">
-					
-					@if(count($course->quizzes) > 0)
-
-						@foreach($course->quizzes as $quiz)
-							<div class="quiz"> 
-								<a href="/courses/{{$quiz->course->slug}}/quizzes/{{ $quiz->name }}" target="_blank"  >
-									{{$quiz->name}}
-								</a>
-							</div>
-						@endforeach
-
-
-					@else
-						<div class="alert alert-secondary">
-							This course does not include any Quizzes
-						</div>
-					@endif
-				</div>
-			</div>
-		</div>
-
-			
-{{-- 
-		<div class="enroll-form">
-
-			@if(count(auth()->user()->courses()->where('slug', $course->slug)->get()) > 0)
-
-				<div class="alert alert-default">Enrolled</div>
-
-			@else
-				<form method="POST" action="/courses/{{$course->slug}}">
-					@csrf
-					<input type="submit" value="Enroll" name="enroll" class="btn btn-default btn-enroll">				
-				</form>
-			@endif
-		</div>
-		<div class="clearfix"></div>
-		<div class="videos">
-			
-			<h3>Course Videos</h3>
-
-			<div class="row">
-				
-				<div class="col-sm-12">
-					
-					@if(count($course->videos) > 0)
-
-						@if(count(auth()->user()->courses()->where('slug', $course->slug)->get()) > 0)
-
-						@foreach($course->videos as $video)
-							<div class="video">
-								<a data-toggle="modal" data-target="#show-video" href="{{$video->link}}"><i class="fab fa-youtube">
-									</i> {{ $video->title }}</a>
-							</div>
-						@endforeach
-
-						@else
-
-						@foreach($course->videos as $video)
-							<div class="video disabled">
-								<a data-toggle="modal" data-target="#show-video" href="{{$video->link}}"><i class="fab fa-youtube"></i> {{ $video->title }}</a>
-							</div>
-						@endforeach
-
-						@endif
+							@endif
 
 					@else
 						<div class="alert alert-secondary">
@@ -201,70 +138,50 @@
 				</div>
 			</div>
 		</div>
-		 --}}
 
-		<hr>
-{{-- 
 		<div class="quizzes">
 			
 			<h3>Test Your knowledge</h3>
-
-			<div class="row">
+		   <div class="row">
 				
 				<div class="col-sm-12">
 					
-					@if(count($course->quizzes) > 0)
-					@if(count(auth()->user()->courses()->where('slug', $course->slug)->get()) > 0)
-						@foreach($course->quizzes as $quiz)
-							<div class="quiz">
-								<a target="_blank" href="/courses/{{ $quiz->course->slug }}/quizzes/{{ $quiz->name }}"> {{ $quiz->name }}</a>
-							</div>
-						@endforeach
-						@else
+				@if(count($course->quizzes) > 0)
 
-						@foreach($course->quizzes as $quiz)
-							<div class="quiz disabled">
-								<a target="_blank" href="/courses/{{ $quiz->course->slug }}/quizzes/{{ $quiz->name }}"> {{ $quiz->name }}</a>
-							</div>
-						@endforeach
+				@if(count(auth()->user()->courses()->where('slug', $course->slug)->get())> 0) 		
 
-						@endif
-					@else
-						<div class="alert alert-secondary">
-							This course does not include any quizzes
+					@foreach($course->quizzes as $quiz)
+						<div class="quiz"> 
+							<a href="/courses/{{$quiz->course->slug}}/quizzes/{{ $quiz->name }}" 
+								target="_blank"  >
+								{{$quiz->name}}
+							</a>
 						</div>
-					@endif
-				</div>
+					@endforeach
+					
+				@else
+				    @foreach($course->quizzes as $quiz)
+						<div class="quiz disabled"> 
+							<a href="/courses/{{$quiz->course->slug}}/quizzes/
+								{{ $quiz->name }}" target="_blank"  >
+								{{$quiz->name}}
+							</a>
+						</div>
+					@endforeach
+					
+				@endif
+
+				@else
+					<div class="alert alert-secondary">
+						This course does not include any Quizzes
+					</div>
+				@endif
+			</div>
 			</div>
 		</div>
-	</div>
 
 
 
-@if(count(auth()->user()->courses()->where('slug', $course->slug)->get()) > 0)
-
-<!-- Modal -->
-<div class="modal fade" id="show-video" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog " role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Video Preview</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        
-		  <iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; 
-		  autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      </div>
-    </div>
-  </div>
-</div> 
-
-@endif
---}}
 
 
 
