@@ -41,6 +41,10 @@ Route::get('/tracks/{name}', 'TrackController@index');
 
 Route::get('/mycourses', 'MyCoursesController@index');
 
+Route::get('/profile', 'ProfileController@index');
+
+Route::post('/profile', 'ProfileController@update');
+
 // Logout 
 
 Route::get('/logout', function() {

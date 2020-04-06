@@ -576,9 +576,7 @@ footer div.footer-copyright a {
 	max-height: 150px;
 }
 
-.search-courses .course .col-sm-8 {
-	/*border: 1px solid grey;*/
-}
+
 
 .search-courses {
 	margin-top: 50px;
@@ -695,4 +693,84 @@ footer div.footer-copyright a {
 
 .user-courses .course img:hover {
 	opacity: .8;
+}
+
+
+/* User Profile Srtyle */
+
+.user-profile {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.user-profile h3 {
+	margin-bottom: 30px;
+}
+
+.user-profile .user-info .user-image img {
+	width: 100%;
+	height: auto;
+}
+
+.user-profile .user-info .user-data {
+	margin-top: 20px;
+	padding: 20px;
+}
+
+.user-profile .user-info .user-data ul li {
+	margin-bottom: 15px;
+}
+
+.user-profile .user-info .user-data ul li:nth-child(1) {
+	color: #6d6c6c;
+}
+
+.user-profile .user-info .user-data ul li:nth-child(2) {
+	color: #6d6c6c;
+	font-weight: bold;
+}
+
+
+.user-profile .user-info .user-image form {
+	display: none;
+}
+
+.user-profile .user-info .user-image a {
+	margin: 10px;
+	margin-left: 35%;
+}
+
+
+
+#errorMessage,
+#message {
+	background-color: #7891bf;
+	color: #fff;
+	font-family: 'Lato';
+	font-size: 18px;
+	border-radius: 2px;
+	position: absolute;
+    left: -100px;
+    padding: 8px 15px;
+    margin: 0;
+    top: 0px;
+    display: none;
+}
+
+
+#errorMessage {
+	background-color: #9e140e;
+	color: #fff;
+	left: 15px;
+	top: -50px;
+}
+
+.contact1 #message 
+{
+	top: 150px;
+	left: 200px;
+	background-color:#18c374;
+}
+
+.user-tracks {
+	margin-top: 30px;
 }
