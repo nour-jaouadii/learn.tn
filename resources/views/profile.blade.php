@@ -100,7 +100,7 @@
 			</div>
 
 			
-			{{-- <div class="user-tracks">
+			<div class="user-tracks">
 
 				<div class="heading">
 					<h4>You're learning in these tracks</h4>
@@ -122,7 +122,7 @@
 				</div>
 
 
-			</div> --}}
+			</div> 
 
 
 		</div>

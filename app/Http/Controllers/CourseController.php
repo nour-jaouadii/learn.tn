@@ -13,9 +13,9 @@ class CourseController extends Controller
     }
 
     public function index($slug) {
-
-
-    	$course = Course::where('slug', $slug)->first();
+ 
+         
+        $course = Course::where('slug', $slug)->first();
     	return view('course', compact('course'));
     }
 
@@ -32,8 +32,15 @@ class CourseController extends Controller
         //    return redirect('courses/'.$slug, )->
         //    withStatus('you have already enrolled '.$course->title) ;
         //  }else{
+
+          // attach user to course 
             $user->courses()->attach([$course->id]);
-  
+
+            $track = $course->track;
+
+          // attach user to track
+            $user->tracks()->attach([$track->id]);
+
             return redirect('courses/'.$slug, )->
             withStatus('you have enrolled in '.$course->title);
 

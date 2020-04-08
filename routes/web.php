@@ -45,6 +45,8 @@ Route::get('/profile', 'ProfileController@index');
 
 Route::post('/profile', 'ProfileController@update');
 
+Route::get('/allcourses', 'AllcoursesController@update');
+
 // Logout 
 
 Route::get('/logout', function() {
