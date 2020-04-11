@@ -6,7 +6,7 @@
 
 		@foreach($tracks as $track)
 
-		<h4>Last {{$track->name}} courses</h4>
+		<h4>Last <span class="brackets" ><<</span> <span style="color: #5899d2;" >{{$track->name}}</span><span class="brackets" >>></span>   courses</h4>
 
 		<div class="row">
 			

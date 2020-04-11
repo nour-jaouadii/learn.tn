@@ -11,7 +11,7 @@ class QuizQuestionController extends Controller
  
     public function create(Quiz $quiz)
     {
-        return view('admin.quizzes.createQuestion',compact('quiz'));
+        return view('admin.quizzes.createquestion', compact('quiz'));
     }
 
     /**
@@ -22,8 +22,24 @@ class QuizQuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'title' => 'required|min:20|max:1000',
+            'answers' => 'required|min:10|max:1000',
+            'right_answer' => 'required|min:3|max:100',
+            'score' => 'required|integer|in:5,10,15,20,25,30',
+             'type' => 'required|in:text,checkbox',
+            'quiz_id' => 'required|integer',
+        ];
+
+        $this->validate($request, $rules);
+
+        if(Question::create($request->all())) {
+            return redirect('/admin/questions')->withStatus('Question successfully created.');
+        }else {
+            return redirect('/admin/questions/create')->withStatus('Something Wrong, Try again.');
+        }
     }
+
 
     /**
      * Display the specified resource.

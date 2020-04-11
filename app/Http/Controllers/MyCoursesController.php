@@ -17,8 +17,10 @@ class MyCoursesController extends Controller
 
             $user_courses = $user->courses;
 
-            return view('mycourses',compact('user_courses'));
+            return view('mycourses',compact('user_courses','user'));
 
     }
+
+   
     
 }

@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -45,7 +47,11 @@ Route::get('/profile', 'ProfileController@index');
 
 Route::post('/profile', 'ProfileController@update');
 
-Route::get('/allcourses', 'AllcoursesController@update');
+Route::get('/allcourses', 'AllcoursesController@index');
+
+ Route::get('/contact', "ContactController@index");
+
+ Route::post('/contact', "ContactController@sendEmail");
 
 // Logout 
 

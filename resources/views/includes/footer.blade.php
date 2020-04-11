@@ -11,8 +11,8 @@
         <div class="col-md-4 mx-auto">
   
           <!-- Content -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Learn whith us/h5>
-          <p>learn.tn is the most amazing plateform in the world !! Learn with us for free</p>
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Learn whith us >
+          <p>learn Programing is the most amazing plateform in the world !! Learn with us for free</p>
   
         </div>
         <!-- Grid column -->

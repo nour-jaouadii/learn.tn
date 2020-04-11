@@ -10,6 +10,6 @@ class AllcoursesController extends Controller
     public function index() {
 
         $courses = Course::paginate(16);
-        return view('allcourses', compact('course'));
+        return view('allcourses', compact('courses'));
     }
 }

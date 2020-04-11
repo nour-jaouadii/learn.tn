@@ -14,8 +14,9 @@
 	  <div id="mdb-lightbox-ui"></div>
 	  <!--First slide-->
   
-	  <div id="courses-header">
-		  <h4>Resume Learning</h4>
+	  <div id="courses-header"> 
+		  <h2 class="user_welcome" >Welcome back, {{ auth()->user()->name }} </h2>
+		<h4 >Ready to jump back in? </h4>
 		  <a href="/mycourses">My courses</a>
 		  <div class="clearfix"></div>
 		</div>

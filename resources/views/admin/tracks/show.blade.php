@@ -13,7 +13,8 @@
                                 <h3 class="mb-0">{{ __('Track Management') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="/admin/tracks/{{$track->id}}/courses/create" class="btn btn-sm btn-primary">{{ __('New course') }}</a>
+                                <a href="/admins/tracks/{{$track->id}}/courses/create" class="btn btn-sm btn-primary">
+                                    {{ __('New course') }}</a>
                             </div>
                         </div>
                     </div>
