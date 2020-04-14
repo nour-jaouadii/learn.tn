@@ -22,10 +22,10 @@
 		</div>
   
 	  @foreach($user_courses as $course)
-  
+	  {{-- if($loop->first) echo 'active';   si first loop print active --}}
 	  <div class="course carousel-item <?php if($loop->first) echo 'active'; ?>">
 		<div class="row">
-		  <div class="col-sm-4 offset-sm-2">
+		  <div style="margin-left: 302px; box-shadow: -9px 9px 13px 12px #777;" class="caroussel_modifa">
 			<figure class="col-md-4 d-md-inline-block">
 			  <a href="/courses/{{$course->slug}}"
 				data-size="1600x1067">
@@ -37,10 +37,10 @@
 			  </a>
 			</figure>
 		  </div>
-		  <div class="col-sm-4">
+		  <div style="" class="col-sm-4 descrption" >
 			  <h3><a href="/courses/{{$course->slug}}">{{\Str::limit($course->title, 30)}}</a></h3>
 			  <h4>Track: <a href="/tracks/{{$course->track->name}}">{{$course->track->name}}</a></h4><br>
-			  <h5><a href="">{{count($course->users)}} users are learning this course.</a></h5>
+			  <h5><a href="">Get started: {{count($course->users)}} users are learning this course.</a></h5>
 		  </div>
 		</div>
 		

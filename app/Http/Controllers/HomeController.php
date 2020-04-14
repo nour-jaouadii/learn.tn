@@ -13,11 +13,19 @@ class HomeController extends Controller
 	public function index() {
 
 		$tracks = Track::with('courses')->orderBy('id', 'desc')->get();
-
-		$famous_tracks_ids = Course::pluck('track_id')->countBy()->sort()->reverse()->keys()->take(10);
-
+		 // meme ecriture (relation) :  Track::with('courses') = track->courses()
+		
+	//Famous topic for you
+		// get famous tracks_ids
+		$famous_tracks_ids =
+		Course::pluck('track_id')->countBy()->sort()->reverse()->keys()->take(10);
+		 // ->keys dans notre cas retourne  (track_id) 
+		 //ou si on remplace trac_id par ->values retourne les valeurs
+		// track_id = [1,2.7,6,9] trier ds l'ordre décroissant
+ 
 		$famous_tracks = Track::withCount('courses')->whereIn('id', $famous_tracks_ids)->orderBy('courses_count', 'desc')->get();
 		 
+	// Recommended Courses
 		if(\Auth::check()) {
 			 
 			$user_id = auth()->user();

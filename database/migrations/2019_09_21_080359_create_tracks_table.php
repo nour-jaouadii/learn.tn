@@ -10,7 +10,7 @@ class CreateTracksTable extends Migration
      * Run the migrations.
      *
      * @return void
-     */
+     */m
     public function up()
     {
         Schema::create('tracks', function (Blueprint $table) {

@@ -72,7 +72,7 @@ body {
 	padding-top: 0;
 	font-weight: 400;
 	margin-left: 5px;
-	color: #cccccc;
+	color: #fff5f5;
 }
 .home_picture .background_text p strong {
 	color: #1c5996;
@@ -115,7 +115,7 @@ body {
 	border-color: #1c5996;
 }
 
-/* User Courses Carusel */
+/* User Courses Carusel ( mycourses Page ) */ 
 
 .carousel {
 	margin-top: 30px;
@@ -158,6 +158,7 @@ margin-bottom: 15px;
 }
 .carousel .course .col-sm-4,
 .carousel .course .col-sm-4 {
+	padding: 36px;
 	background-color: #f3f4f5;
 }
 .course a {
@@ -166,7 +167,24 @@ margin-bottom: 15px;
 	margin-top: 10px;
 	color: #000;
 }
+.carousel .descrption{
+	box-shadow: 6px 9px 23px 8px #777 inset;
+	padding: 41px 0 0 70px;
+	/* transition: 0.1s ease-in-out; */
+}
+.carousel .descrption:hover{
+	box-shadow: 6px 9px 23px 8px #777 ;
+	padding: 41px 0 0 70px;
+	background: #dadada
+}
 
+.carousel .descrption h3 a,
+  
+.carousel .descrption h4 a{
+	
+	padding: 16px;
+		font-size: 20px;
+}
 
 .carousel .left-arrow,
 .carousel .right-arrow {
@@ -269,7 +287,7 @@ margin-bottom: 15px;
 	width: 18%;
 	margin-left: 10px;
 	margin-bottom: 15px;
-	box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+	box-shadow: 2px 3px 4px 3px rgba(32, 49, 77, 0.1), 0 3px 1px 0 rgba(20,23,28,.1)
 }
 
 .famous-tracks .tracks ul li a {

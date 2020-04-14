@@ -53,6 +53,9 @@ Route::get('/allcourses', 'AllcoursesController@index');
 
  Route::post('/contact', "ContactController@sendEmail");
 
+ Route::get('/alltrack', "allTrackController@index");
+
+
 // Logout 
 
 Route::get('/logout', function() {
