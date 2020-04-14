@@ -1,5 +1,3 @@
-
-
 @extends('layouts.user_layout')
 
 @section('content')
@@ -10,7 +8,7 @@
 
   <div class="card">
     <div class="card__image-holder">
-      <img class="card__image" src="https://source.unsplash.com/300x225/?mountain" 
+      <img href="/tracks/{{$track->name}}" class="card__image" src="https://source.unsplash.com/300x225/?mountain" 
       alt="wave" />
     </div>
     <div class="card-title">
@@ -18,9 +16,9 @@
         <span class="left"></span>
         <span class="right"></span>
       </a>
-      <h2>
+      <h2 href="/tracks/{{$track->name}}" >
         Track   
-         <small>{{ $track->name }}</small>
+         <small href="/tracks/{{$track->name}}" >{{ $track->name }}</small>
       </h2>
     </div>
     <div class="card-flap flap1">
@@ -30,7 +28,7 @@
       </div>
       <div class="card-flap flap2" >
         <div class="card-actions" >
-          <a href="https://codepen-api-export-production.s3.us-west-2.amazonaws.com/zip/PEN/wKEwRL/1586801465474/3d-fold-out-reveal.zip" class="btnX">
+          <a  href="/tracks/{{$track->name}}" class="btnX">
             See courses</a>
         </div>
       </div>

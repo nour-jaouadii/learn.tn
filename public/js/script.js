@@ -1,7 +1,5 @@
 $(function() {
 
-
-
 		$(".videos .video a").on('click', function(e) {
 			e.preventDefault();
 			
