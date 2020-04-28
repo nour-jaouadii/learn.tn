@@ -13,6 +13,8 @@
 
 // User Routes
 
+Auth::routes(['verify' => true]);
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
@@ -20,8 +22,8 @@ Route::get('/', function () {
 });
 
 
-
-Auth::routes();
+Auth::routes(['verify' => true ]);
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -53,7 +55,7 @@ Route::get('/allcourses', 'AllcoursesController@index');
 
  Route::post('/contact', "ContactController@sendEmail");
 
- Route::get('/alltrack', "allTrackController@index");
+ Route::get('/alltracks', "allTrackController@index");
 
 
 // Logout 

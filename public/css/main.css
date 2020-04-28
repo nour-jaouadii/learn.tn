@@ -74,21 +74,31 @@ h1,h2,h3,h4,h5,h6 {
 }
 span h1  {
   font-size: 36px;
-  background: #9e9d9d3d;
+  background: #cccccc3d;
   padding: 27px 97px 20px;
   box-shadow: -3px 5px 11px 5px #f0f0f0;
 }
 .nour h3 {
   margin: 39px 106px; color: #29303b;
 }
+p span #nour {
+  color: #d1d1d1;
+}
 
+.course-info .track-row {
+  padding: 5px !important;
+}
+
+ .course-details .course-title {
+  color: #6b6a6a;
+ }
 p {
 	font-family: Montserrat-Regular;
-	font-size: 14px;
-	line-height: 1.7;
-  color: #474747;
-  padding: 14px 5px 14px 12px;
-	margin: 0px;
+  font-size: 14px;
+  color: #a8a8a8;
+  line-height: 1.7;
+  padding: 0px 12px 8px 0px;
+  	margin: 0px;
 }
 
 ul, li {

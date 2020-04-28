@@ -3,15 +3,15 @@
 
 	<div class="container-fluid">
 		
-		<div class="background_text">
+		<div class="background_text" id="nour2">
 			
-			<p class="text-center">Start learning over 
+			<p style="color: #d1d1d1;" class="text-center">Start learning over 
                 <span class="number">
                 {{ \App\Course::all()->count() }}
                 </span> courses for <strong>Free</strong>.
             </p>
            
-            <p class="text-center">More than <span>{{ \App\User::all()->count() }}</span>
+            <p  class="text-center">More than <span >{{ \App\User::all()->count() }}</span>
                  users have enrolled in <span>{{ \App\Course::all()->count() }}</span> 
                  courses in <span>{{ \App\Track::all()->count() }}</span>
                   different Tracks

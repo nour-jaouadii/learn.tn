@@ -74,7 +74,7 @@
 								</div>
 								<div class="col-sm">
 									<div class="course-details">
-										<p class="course-title">{{ \Str::limit($course->title,60) }}</p>
+										<p style="#808080" class="course-title">{{ \Str::limit($course->title,60) }}</p>
 										<span style="margin-left: 10px; font-weight: 500;" class="{{ $course->status == '0' ? 'text-success' : 'text-danger' }}">{{ $course->status == '0' ? 'FREE' : 'PAID' }}</span>
 										<span style="margin-left: 15%">{{ count($course->users) }} users</span>
 									</div>

@@ -44,9 +44,9 @@
 								
 								<div class="col-sm-8">
 									<div class="course-info">
-										
+
 										<h6><a href="/courses/{{ $course->slug }}">{{ \Str::limit($course->title, 30) }}</a></h6>
-										<p>{{ \Str::limit($course->description, 100) }}</p>
+										<span id="nour">{{ \Str::limit($course->description, 100) }}</p></span><p>
 										<h6 class="track-row">Track: 
 											<a href="">{{$course->track->name}}</a>
 											<span style="float: right; margin-right: 10px;">

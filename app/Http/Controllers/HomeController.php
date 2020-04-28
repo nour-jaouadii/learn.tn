@@ -10,6 +10,11 @@ use App\Course;
 
 class HomeController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+
 	public function index() {
 
 		$tracks = Track::with('courses')->orderBy('id', 'desc')->get();

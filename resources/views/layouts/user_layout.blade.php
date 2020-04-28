@@ -37,6 +37,8 @@
         <link rel="stylesheet"
         href="{{ asset('js/styleTrack.css') }}">
 
+
+
     </head>
     <body class="{{ $class ?? '' }}">
 
@@ -54,11 +56,14 @@
             <input  type="search"  placeholder="find your course..." class="form-control mr-sm-2" 
               name="q" aria-label="Search">
         </form>
-
+    
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/alltracks"> Tracks</a></a>
+              </li>
             <li class="nav-item">
               <a class="nav-link" href="/allcourses"> Courses</a></a>
             </li>
@@ -71,7 +76,7 @@
                     {{\Str::limit(auth()->user()->name, 10)}}
                     @endauth
                     @guest
-                    Login                   
+                    <a style="margin-top:-15px" class="nav-link" href="/login">Login</a>
                     @endguest
                 </a>
                 @auth
@@ -101,6 +106,8 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+       
+
 
        
 <!--===============================================================================================-->
@@ -130,5 +137,7 @@
 <!--===============================================================================================-->
     <script src="/js/main.js"></script>
     <script src="/js/scriptTrack.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     </body>
 </html>
