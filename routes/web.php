@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +12,20 @@
 |
 */
 
+
+
+//  Socialite
+
+Route::get('/redirect/{service}', 'SocialController@redirect');
+
+Route::get('/callback/{service}', 'SocialController@callback');
+
+
 // User Routes
 
-Auth::routes(['verify' => true]);
+Auth::routes();
+
+//Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -22,8 +34,8 @@ Route::get('/', function () {
 });
 
 
-Auth::routes(['verify' => true ]);
-//Auth::routes();
+//Auth::routes(['verify' => true ]);
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -58,7 +70,7 @@ Route::get('/allcourses', 'AllcoursesController@index');
  Route::get('/alltracks', "allTrackController@index");
 
 
-// Logout 
+// Logout
 
 Route::get('/logout', function() {
 	if(\Auth::check()) {
@@ -69,7 +81,7 @@ Route::get('/logout', function() {
 	}
 })->name('logout');
 
-// Admin Routes 
+// Admin Routes
 
 
 Route::group(['middleware' => ['auth', 'admin'] ], function () {
@@ -94,7 +106,7 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 	Route::resource('admin/courses', 'Admin\courseController');
 
 	Route::resource('admin/courses.videos', 'Admin\CourseVideoController');
-	
+
 	Route::resource('admin/courses.quizzes', 'Admin\CourseQuizController');
 
 
@@ -111,11 +123,15 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
 
 	Route::get('admin/profile', ['as' => 'profile.edit', 'uses' => 'Admin\ProfileController@edit']);
-	
+
 	Route::put('admin/profile', ['as' => 'profile.update', 'uses' => 'Admin\ProfileController@update']);
-	
+
 	Route::put('admin/profile/password', ['as' => 'profile.password', 'uses' => 'Admin\ProfileController@password']);
 
 
 });
+
+
+
+
 

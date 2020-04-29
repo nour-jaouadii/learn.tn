@@ -43,5 +43,15 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
+    'facebook' => [
+        'client_id' => env ( 'FB_CLIENT_ID' ),
+        'client_secret' => env ( 'FB_CLIENT_SECRET' ),
+        'redirect' => env ( 'FB_REDIRECT' )
+    ],
+    'github' => [
+        'client_id' => env ( 'Github_CLIENT_ID' ),
+        'client_secret' => env ( 'Github_CLIENT_SECRET' ),
+        'redirect' => env ( 'Github_REDIRECT' )
+    ],
 
 ];
