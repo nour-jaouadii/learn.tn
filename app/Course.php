@@ -13,7 +13,7 @@ class Course extends Model
         'status',
         'link',
         'track_id',
-       
+
     ];
 
     public function photo() {
@@ -31,8 +31,13 @@ class Course extends Model
     public function track() {
         return $this->belongsTo('App\Track');
     }
-    
+
     public function videos() {
         return $this->hasMany('App\Video');
+    }
+
+    public function instructor()
+    {
+        return $this->belongsTo('App\Instructor');
     }
 }

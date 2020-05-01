@@ -1,7 +1,7 @@
 @extends('layouts.user_layout')
 
 @section('content')
-	
+
 	<div class="container">
 		<div class="col-12">
 	        @if (session('status'))
@@ -13,18 +13,18 @@
 	            </div>
 	        @endif
 	    	</div>
-		        	
+
 		<div class="row">
-			
+
 			<div class="course-header">
-				
+
 				<div class="row">
-					
+
 					<div class="col-sm-8">
-						
+
 						<h2>{{ $course->title }}</h2>
 						<p>{{ $course->description }}</p>
-						<h5>Track: 
+						<h5>Track:
 							<a href="/tracks/{{$course->track->name}}">{{$course->track->name}}</a>
 							<span style="float: right;">
 								@if($course->status == 0)
@@ -62,20 +62,20 @@
 			@else
 				<form method="POST" action="/courses/{{$course->slug}}">
 					@csrf
-					<input type="submit" value="Enroll" name="enroll" 
-					class="btn btn-default btn-enroll">				
+					<input type="submit" value="Enroll" name="enroll"
+					class="btn btn-default btn-enroll">
 				</form>
 			@endif
 		</div>
 		<div class="clearfix"></div>
 		<div class="videos">
-			
+
 			<h3>Course Videos</h3>
 
 			<div class="row">
-				
+
 				<div class="col-sm-12">
-					
+
 					@if(count($course->videos) > 0)
 
 						@if(count(auth()->user()->courses()->where('slug', $course->slug)->get()) > 0)
@@ -108,13 +108,13 @@
 		<hr>
 
 		<div class="quizzes">
-			
+
 			<h3>Test Your knowledge</h3>
 
 			<div class="row">
-				
+
 				<div class="col-sm-12">
-					
+
 					@if(count($course->quizzes) > 0)
 					@if(count(auth()->user()->courses()->where('slug', $course->slug)->get()) > 0)
 						@foreach($course->quizzes as $quiz)
@@ -156,7 +156,7 @@
         </button>
       </div>
       <div class="modal-body">
-        
+
       	<iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
       </div>
@@ -165,5 +165,10 @@
 </div>
 
 @endif
+
+{{-- <hr> --}}
+
+@include('includes.instructorProfile')
+
 
 @endsection

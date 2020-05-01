@@ -8,7 +8,7 @@ use App\Video;
 use App\Quiz;
 use App\Question;
 use App\Photo;
-
+use App\Instructor;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
@@ -31,8 +31,19 @@ $factory->define(Track::class, function (Faker $faker) {
     ];
 });
 
+
+$factory->define(Instructor::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'photo' => $faker->randomElement(['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg',]),
+
+
+    ];
+});
+
+
 $factory->define(Course::class, function (Faker $faker) {
- 
+
     $title = $faker->sentence;
 
     return [
@@ -42,7 +53,8 @@ $factory->define(Course::class, function (Faker $faker) {
     	'slug' => strtolower(str_replace(' ','-', $title)) ,
     	'status' => $faker->randomElement([0,1]),
     	'link' => $faker->url,
-    	'track_id' => Track::all()->random()->id,
+        'track_id' => Track::all()->random()->id,
+        'instructor_id' => Instructor::all()->random()->id,
     ];
 });
 
@@ -64,9 +76,9 @@ $factory->define(Quiz::class, function (Faker $faker) {
 });
 
 $factory->define(Question::class, function (Faker $faker) {
-    $answers = $faker->sentence; 
+    $answers = $faker->sentence;
     $right_answer = $faker->randomElement(explode(' ', $answers));
-    
+
     return [
     	'title' => $faker->paragraph,
     	'answers' => $answers,

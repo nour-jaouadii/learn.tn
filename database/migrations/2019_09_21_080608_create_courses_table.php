@@ -21,6 +21,7 @@ class CreateCoursesTable extends Migration
             $table->integer('status')->default(0);
             $table->string('link');
 
+            $table->bigInteger('instructor_id')->unsigned();
             $table->bigInteger('track_id')->unsigned();
 
             $table->foreign('track_id')->references('id')->on('tracks')->onDelete('cascade');

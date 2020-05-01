@@ -1,26 +1,30 @@
 <!--Carousel Wrapper-->
 <div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-interval="false" data-ride="carousel">
 
+    @if ( count(auth()->user()->courses) > 0)
+
 	<!--Controls-->
 	  <a class="btn-floating btn-primary left-arrow" href="#carousel-with-lb" data-slide="prev"><i
 		  class="fas fa-chevron-left"></i></a>
 	  <a class="btn-floating btn-primary right-arrow" href="#carousel-with-lb" data-slide="next"><i
 		  class="fas fa-chevron-right"></i></a>
 	<!--/.Controls-->
-  
-	<!--Slides and lightbox-->
-  
+
+    <!--Slides and lightbox-->
+
 	<div class="carousel-inner mdb-lightbox" role="listbox">
 	  <div id="mdb-lightbox-ui"></div>
 	  <!--First slide-->
-  
-	  <div id="courses-header"> 
+
+
+	  <div id="courses-header">
 		  <h2 class="user_welcome" >Welcome back, {{ auth()->user()->name }} </h2>
 		<h4 >Ready to jump back in? </h4>
 		  <a href="/mycourses">My courses</a>
 		  <div class="clearfix"></div>
-		</div>
-  
+	  </div>
+      @endif
+
 	  @foreach($user_courses as $course)
 	  {{-- if($loop->first) echo 'active';   si first loop print active --}}
 	  <div class="course carousel-item <?php if($loop->first) echo 'active'; ?>">
@@ -43,13 +47,13 @@
 			  <h5><a href="">Get started: {{count($course->users)}} users are learning this course.</a></h5>
 		  </div>
 		</div>
-		
-  
+
+
 	  </div>
 	  <!--/.First slide-->
 		@endforeach
 	  </div>
 	</div>
-  
+
   </div>
   <!--/.Carousel Wrapper-->

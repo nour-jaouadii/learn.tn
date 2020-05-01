@@ -8,7 +8,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-       
+
     	$users = factory('App\User', 10)->create();
 
     	$tracks = factory('App\Track', 10)->create();
@@ -20,9 +20,11 @@ class DatabaseSeeder extends Seeder
             $user->tracks()->sync( $tracks_ids );
         }
 
+        $Instructor = factory('App\Instructor', 50)->create();
+       
 
         $courses = factory('App\Course', 50)->create();
-    	
+
         foreach ($users as $user) {
             $courses_ids = [];
 
